@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/widgets/Button.dart';
-import 'package:toonflix/widgets/curency_card.dart';
+import 'package:toonflix/widgets/curency_card.dart'; // Assuming you have renamed the CurrencyCard to DesignMeetingCard and it now lives here.
 
 void main() {
   runApp(const App());
@@ -20,120 +19,86 @@ class App extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 80,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Text(
-                          'Hey, Selena',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 28,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        Text(
-                          'Welcome back',
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.5),
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 70,
-                ),
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
-                      fontSize: 22, color: Colors.white.withOpacity((0.8))),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  '\$5 194 482',
-                  style: TextStyle(
-                    fontSize: 42,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Button(
-                        text: 'Transfer',
-                        bgColor: Color(0xFFF1B33B),
-                        textColor: Colors.black),
-                    Button(
-                        text: 'Request',
-                        bgColor: Color(0xFF1F2123),
-                        textColor: Colors.white),
-                  ],
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                const SizedBox(height: 30),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Wallete',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                          fontWeight: FontWeight.w600),
+                    CircleAvatar(
+                      radius: 30,
+                      child: CircleAvatar(
+                        radius:
+                            48, // slightly smaller to create a border effect
+                        backgroundImage: NetworkImage(
+                            'https://www.woolha.com/media/2020/03/eevee.png'),
+                      ),
                     ),
                     Text(
-                      'View All',
+                      '+',
                       style: TextStyle(
-                        color: Colors.white.withOpacity((0.8)),
-                        fontSize: 18,
+                        color: Colors.white,
+                        fontSize: 68,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
+                const SizedBox(height: 10),
+                Text(
+                  'Monday 16',
+                  style: TextStyle(
+                      fontSize: 22, color: Colors.white.withOpacity(0.8)),
                 ),
-                const CurrencyCard(
-                  name: 'Euro',
-                  code: 'EUR',
-                  amount: '6.428',
-                  icon: Icons.euro_rounded,
-                  isInverted: false,
-                  offsetX: 0,
-                  offsetY: 0,
+                const SizedBox(height: 5),
+                Row(
+                  children: [
+                    const Text(
+                      'TODAY',
+                      style: TextStyle(
+                        fontSize: 42,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const Text(
+                      '●',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink,
+                      ),
+                    ),
+                    Text(
+                      '17 18 19 20',
+                      style: TextStyle(
+                        fontSize: 42,
+                        color: Colors.white.withOpacity(0.5),
+                      ),
+                    ),
+                  ],
                 ),
-                const CurrencyCard(
-                  name: 'Bitcoin',
-                  code: 'BTC',
-                  amount: '9.785',
-                  icon: Icons.currency_bitcoin,
+                const SizedBox(height: 10),
+                const DesignMeetingCard(
+                  meetingTitle: 'DESIGN MEETING',
+                  participantNames: ['ALEX', 'ELENA', 'NANA'],
+                  startTime: '11:30',
+                  endTime: '12:20',
                   isInverted: true,
-                  offsetX: 0,
-                  offsetY: -20,
                 ),
-                const CurrencyCard(
-                  name: 'Dollar',
-                  code: 'USD',
-                  amount: '428',
-                  icon: Icons.attach_money,
+                const SizedBox(height: 20),
+                const DesignMeetingCard(
+                  meetingTitle: 'DAILY PROJECT',
+                  participantNames: ['ME', 'RICHARD', 'CIRY', '+4'],
+                  startTime: '12:35',
+                  endTime: '14:10',
                   isInverted: false,
-                  offsetX: 0,
-                  offsetY: -40,
                 ),
+                const SizedBox(height: 20),
+                const DesignMeetingCard(
+                  meetingTitle: 'DESIGN MEETING',
+                  participantNames: ['DEN', 'NANA', 'MARK'],
+                  startTime: '15:00',
+                  endTime: '16:30',
+                  isInverted: true,
+                ),
+                const SizedBox(height: 20),
+                // Other CurrencyCard widgets go here
               ],
             ),
           ),
